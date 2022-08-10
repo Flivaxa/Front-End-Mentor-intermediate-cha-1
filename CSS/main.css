@@ -1,0 +1,281 @@
+/* Start Variables */
+:root {
+--Primary-Pale-Violet: hsl(276, 100%, 81%); /* (sub-heading at the top of the app UI) */
+--Primary-Moderate-Violet: hsl(276, 55%, 52%); /* (chat on the left) */
+--Primary-Desaturated-Dark-Violet: hsl(271, 15%, 43%); /* (chat on the right) */
+--Primary-Grayish-Blue: hsl(206, 6%, 79%); /* (placeholder text) */
+--Primary-Very-Dark-Desaturated-Violet: hsl(271, 36%, 24%); /* (main heading) */
+--Primary-Dark-Grayish-Violet: hsl(270, 7%, 64%); /* (paragraph) */
+
+/* These two colors are the vibrant background colors you see throughout the design and are applied as a linear gradient: */
+--Gradients-Light-Magenta: hsl(293, 100%, 63%);
+--Gradients-Light-Violet: hsl(264, 100%, 61%);
+
+--Secondary-White: hsl(0, 0%, 100%);
+--Secondary-Light-Grayish-Violet: hsl(270, 20%, 96%); /* (app background) */
+--Secondary-Very-Dark-Desaturated-Violet: hsl(271, 36%, 24%); /* (submit button background) */
+--Secondary-Very-Light-Magenta: hsl(289, 100%, 72%); /* (radio button outline) */
+}
+/* End Variables */
+/* Start Global Rules */
+* {
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    font-family: 'Rubik', sans-serif;
+}
+/* Small */
+@media (min-width: 768px) {
+    .container {
+        width: 750px;
+    }
+}
+/* Medium */
+@media (min-width: 992px) {
+    .container {
+        width: 970px;
+    }
+}
+/* Large */
+@media (min-width: 1200px) {
+    .container {
+        width: 1170px;
+    }
+}
+.container {
+    padding-left: 25px;
+    padding-right: 25px;
+    margin-left: auto;
+    margin-right: auto;
+}
+body {
+    margin: 0;
+    background-color: var(--Secondary-Light-Grayish-Violet);
+    background-color: hsl(0, 0%, 98%);
+}
+/* End Global Rules */
+
+/* Start Background */
+main {
+    position: relative;
+    padding-top: 100px;
+    overflow: hidden;
+}
+main::before {
+    content: "";
+    position: absolute;
+    width: 500px;
+    height: 750px;
+    background-image: linear-gradient(260deg, var(--Gradients-Light-Magenta), var(--Gradients-Light-Violet));
+    border-radius: 0 0 500px 500px;
+    background-size: 100% 100%;
+    left: -250px;
+    top: 0;
+    z-index: -1;
+}
+main::after {
+    content: "";
+    position: absolute;
+    width: 500px;
+    height: 2000px;
+    background-color: #f9f4fa;
+    border-radius: 500px 500px 0 0;
+    right: -250px;
+    top: 65vh;
+    z-index: -1;
+}
+@media (min-width: 768px) {
+    main {
+        height: 100vh;
+    }
+    main::before {
+        width: 500px;
+        height: 817px;
+        left: -90px;
+    }
+    main::after {
+        right: -90px;
+        top: 12vh;
+    }
+}
+/* End Background */
+
+/* Start phone */ 
+.phone {
+    max-width: 375px;
+    background-color: var(--Secondary-Light-Grayish-Violet);
+    border-radius: 40px;
+    border: 10px solid var(--Secondary-White);
+    margin: 0 auto;
+    box-shadow: 0 0 40px 0 rgb(0 0 0 / 25%);
+}
+@media (min-width: 768px) {
+    main .container {
+        display: flex;
+        align-items: center;
+    }
+}
+.phone header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-image: linear-gradient(to right, var(--Gradients-Light-Violet), var(--Gradients-Light-Magenta));
+    padding: 45px 20px 20px;
+    position: relative;
+    border-radius: 30px 30px 0 0;
+}
+.phone header::before {
+    content: "";
+    position: absolute;
+    width: 60%;
+    height: 25px;
+    background-color: var(--Secondary-White);
+    left: 50%;
+    transform: translateX(-50%);
+    top: -1px;
+    border-radius: 0 0 20px 20px;
+}
+.phone header .icon > div {
+    width: 2px;
+    height: 2px;
+    background-color: var(--Secondary-White);
+}
+.phone header > div:first-child {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.phone header > div:first-child i {
+    color: var(--Secondary-White);
+}
+.phone header > div:first-child .avatar {
+    width: 35px;
+}
+.phone header > div:first-child .avatar img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: 2px solid var(--Primary-Pale-Violet);
+}
+.phone header > div:first-child > div:last-child span:first-child {
+    display: block;
+    color: var(--Secondary-White);
+    font-weight: 500;
+}
+.phone header > div:first-child > div:last-child span:last-child {
+    color: var(--Primary-Pale-Violet);
+    font-size: 12px;
+}
+.phone header .icon > div:nth-child(2) {
+    margin: 2px 0;
+}
+/* End phone */ 
+/* Start Chat */
+main .container .phone .chat {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+}
+main .container .phone .chat > div {
+    width: 70%;
+}
+main .container .phone .chat > div p {
+    color: var(--Primary-Moderate-Violet);
+    background-color: #ede5f4;
+    line-height: 1.3;
+    padding: 10px;
+    border-radius: 20px;
+    margin: 0;
+    margin-bottom: 10px;
+    font-size: 14px;
+}
+main .container .phone .chat .send {
+    align-self: flex-end;
+    margin: 20px 0;
+    text-align: end;
+}
+main .container .phone .chat .send div {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+main .container .phone .chat .send div img {
+    width: 65px;
+    border-radius: 10px;
+    
+}
+main .container .phone .chat .send p {
+    width: fit-content;
+    margin-left: auto;
+    border-bottom-right-radius: 8px;
+    background-color: var(--Secondary-White);
+    color: #555;
+}
+main .container .phone .chat .receive:last-child .walk {
+    width: 120%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px 15px 15px;
+    margin-bottom: 10px;
+    background-image: linear-gradient(to right, var(--Gradients-Light-Magenta), var(--Gradients-Light-Violet));
+    border-radius: 20px 20px 20px 8px;
+}
+main .container .phone .chat .receive:last-child .walk > div:first-child {
+    color: rgba(255, 255, 255, 0.7);
+}
+main .container .phone .chat .receive:last-child .walk > div:first-child i {
+    color: rgba(255, 255, 255, 0.4);
+    margin-right: 5px;
+}
+main .container .phone .chat .receive:last-child .walk > div:last-child {
+    color: var(--Secondary-White);
+    font-size: 1.3rem;
+    font-weight: 500;
+}
+main .container .phone .message form {
+    margin: 10px;
+    background-color: var(--Secondary-White);
+    padding: 10px 8px 10px 20px;
+    border-radius: 25px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+}
+main .container .phone .message form input {
+    border: none;
+    outline: none;
+    background-color: unset;
+    flex: 1;
+}
+main .container .phone .message form input::placeholder {
+    color: var(--Primary-Grayish-Blue);
+}
+main .container .phone .message form i {
+    font-size: 2rem;
+    color: var(--Primary-Very-Dark-Desaturated-Violet);
+}
+/* End Chat */
+
+/* Start Landing */
+main .container .landing {
+    text-align: center;
+    max-width: 450px;
+    margin: 0 auto;
+}
+@media (min-width: 768px) {
+    main .container .landing {
+        text-align: start;
+    }
+}
+main .container .landing h1 {
+    color: var(--Primary-Very-Dark-Desaturated-Violet);
+    font-size: 3rem;
+    font-weight: 500;
+}
+main .container .landing p {
+    color: var(--Primary-Dark-Grayish-Violet);
+    line-height: 1.8;
+}
+/* End Landing */
